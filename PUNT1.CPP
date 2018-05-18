@@ -1,0 +1,53 @@
+/*
+  Curso de Programaci¢n de C
+  Punteros 1
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+/*
+  Cuando una variable se declara existen tres atributos fundamentales:
+  ->su tipo (int, float, char) [Da el tama¤o que tiene que asiganarse]
+  ->su nombre [Como se llama la variable, la forma en que se referencia a ella]
+  ->su direcci¢n en memoria (0XFFFF p.e.) [El "lugar" en donde se coloca la variable]
+*/
+
+//VARIABLE GLOBAL
+char c;
+
+void main()
+{
+ clrscr();
+ /*
+   Apuntador a caracter
+   Para declarar un apuntador:
+   tipo_variable *nombre_variable; (no importa si se coloca * nombre_variable)
+ */
+ char *pc;
+ /*
+   Se asigna la direcci¢n de la variable c al apuntador pc, esto es
+   que con esta sentencia el apuntador pc apunta al espacio en memoria
+   de la variable c
+   Operador direcci¢n &
+   (Asignaci¢n est tica de memoria o inicializacion de punteros)
+ */
+ pc=&c;
+ //Ahora se recorre la variable c desde A hasta Z
+ for(c='A'; c <= 'Z'; c++)
+  /*
+    Lo que se hace es mostrar el contenido de lo que apunta pc
+    mediante *pc
+    Operador indirecci¢n *
+  */
+  printf(" %c ", *pc);
+
+ getch();
+ printf("\n\nAhora un entero:\n");
+ int entero=30;
+ int *p=&entero;
+ printf("entero = %d , &entero = 0X%X \n",entero,&entero);
+ printf("p = 0X%X , *p = %d , &p = 0X%X",p,*p,&p);
+ printf("");
+ getch();
+}
