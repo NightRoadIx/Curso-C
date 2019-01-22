@@ -9,7 +9,7 @@
 
 //Aqui esta la funcion de ordenacion
 int sort_function( const void *a, const void *b);
-void permuta(char vec[], int k, int n);
+void permuta(char vec[], char vec2[], int k, int n, int *tst);
 
 //---------------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 	char cad1[50], cad2[50], cad3[50], cad4[50];
 	unsigned int abcd01[26], abcd02[26];
 	int len01 = 0, len02 = 0;
-	int i, j, cont;
+	int i, j, cont, *ptr_cont;
 
 	printf("Cadena 01: ");
 	gets(cad1);
@@ -94,7 +94,17 @@ int main(int argc, char* argv[])
 	// Una vez más revisar si son de la misma longitud
 	if(len01 == len02)
 	{
-		permuta(cad1, 0, len01);
+		cont = 0;
+		ptr_cont = &cont;
+		permuta(cad1, cad2, 0, len01, ptr_cont);
+		printf("Valor %d ", cont);
+		
+		// Verificar si ambas son iguales y entonces si es que son anagramas
+		printf("\nLas cadenas %s y %s ", cad1, cad2);		
+		if(cont > 0)
+			printf("son anagramas\n");
+		else
+			printf("no son anagramas\n");
 	}
 	else
 		printf("\nLongitud de cadenas diferente, no puede ser un anagrama\n");	
@@ -158,7 +168,7 @@ int sort_function( const void *a, const void *b)
    return( strcmp((char *)a,(char *)b) );
 }
 
-void permuta(char vec[], int k, int n)
+void permuta(char vec[], char vec2[], int k, int n, int *tst)
 {
 	int i, aux;
 	
@@ -169,7 +179,7 @@ void permuta(char vec[], int k, int n)
 			aux = vec[k];
 			vec[k] = vec[i];
 			vec[i] = aux;
-			permuta(vec, k+1, n);
+			permuta(vec, vec2, k+1, n, tst);
 			aux = vec[k];
 			vec[k] = vec[i];
 			vec[i] = aux;
@@ -177,9 +187,7 @@ void permuta(char vec[], int k, int n)
 	}
 	else
 	{
-		printf("\n");
-		for(i=0; i < n; i++)
-			printf(" %c ", vec[i]);
+		if( strcmp(vec, vec2) == 0 ) (*tst)++;
 	}
 	
 }
