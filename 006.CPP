@@ -7,25 +7,25 @@
 #define L 100
 
 /*
-  Los arreglos cuando son par metros de funciones pueden cambiar su valor
+  Los arreglos cuando son parámetros de funciones pueden cambiar su valor
   si se modifican dentro de la misma como en el ejemplo, debido a que
   lo que se env¡a es la direcci¢n del arreglo, esto es que se manda:
   &arreglo, y entonces es posible cambiar el valor dentro de la direcci¢n
 */
 void LeerArray(double a[], int *);
-//Puede no declararse el nombre de la varible en la funci¢n
+//Puede no declararse el nombre de la varible en la función
 void imprimir(const double [], int);
 
 void main()
 {
- double a[L];
- int n;
+	 double a[L];
+	 int n;
 
- clrscr();
- LeerArray(a,&n); //Se manda el arreglo y el valor de la direcci¢n de n
- printf("El arreglo tiene %d elementos, estos son: \n",n);
- imprimir(a,n);
- getch();
+	 clrscr();
+	 LeerArray(a,&n); //Se manda el arreglo y el valor de la direcci¢n de n
+	 printf("El arreglo tiene %d elementos, estos son: \n",n);
+	 imprimir(a,n);
+	 getch();
 }
 
 /*
@@ -37,25 +37,25 @@ void main()
 */
 void LeerArray(double a[], int *num)
 {
- int n=0;
- puts("Introduzca sus datos. Para terminar presione 0.\n");
- //Observar que si se inicializa antes la variable contador, puede omitirse en el for
- for(; n < L; n++)
- {
-  printf("%d: ",n);
-  //Se modifica el valor del arreglo
-  scanf("%lf",&a[n]);
-  if(a[n] == 0) break;
- }
- //Asigna n al valor de num
- *num=n;
+	 int n=0;
+	 puts("Introduzca sus datos. Para terminar presione 0.\n");
+	 //Observar que si se inicializa antes la variable contador, puede omitirse en el for
+	 for(; n < L; n++)
+	 {
+		printf("%d: ",n);
+		//Se modifica el valor del arreglo
+		scanf("%lf",&a[n]);
+		if(a[n] == 0) break;
+	 }
+	 //Asigna n al valor de num
+	 *num=n;
 }
 
 //Si se desea que una varible no cambie en una funci¢n, se le coloca
 //identificador const
 void imprimir(const double a[], int n)
 {
- //Inicializar variables dentro del for
- for(int i=0; i < n; i++)
-  printf("\t%d: %lf\n",i,a[i]);
+	 //Inicializar variables dentro del for
+	 for(int i=0; i < n; i++)
+		printf("\t%d: %lf\n",i,a[i]);
 }

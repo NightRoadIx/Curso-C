@@ -1,7 +1,7 @@
 /*
   Programa ejemplo de listas
   
-  La forma mas simple de relacionar o enalzar  un conjunto de elementos es alinearlos
+  La forma mas simple de relacionar o enlazar  un conjunto de elementos es alinearlos
   formando una unica lista, ya que en este caso solo se requerira de apuntador por 
   elemento, para poder hacer referencia a su sucesor.
   
@@ -55,11 +55,11 @@
 
 /*Estructura principal*/
 typedef struct dat{
- char cad[9];		//Cadena de datos
- int num;			//Numero entero de control
- //Importante, se requiere un puntero del tipo struct dentro
- //de la misma estructura para el recorrido de datos
- struct dat *sig;	
+	 char cad[9];		//Cadena de datos
+	 int num;			//Numero entero de control
+	 //Importante, se requiere un puntero del tipo struct dentro
+	 //de la misma estructura para el recorrido de datos
+	 struct dat *sig;
 }nodo;	//Nombre del tipo de datos "struct dat"
 
 //Se inicia el primer elemento del tipo nodo como NULL
@@ -78,171 +78,171 @@ void liberar();	//Función para liberar espacio en memoria
 /* Funcion principal */
 void main()
 {
- /* Variables locales */
- // Se coloca una variable del tipo nodo para su manejo y se inicia a NULL, esto es muy 
- // importante pues es posible que sino se inicia a un valor NULL el apuntador inicie "apuntando"
- // a algún dato "basura"
- nodo *tmp=NULL;
- char opc, opc1, opc2, opc3;
- clrscr();
- 
- // Ciclo principal
- while(1)
- {
-	//Se inicia limpiando la pantalla
-	clrscr();
-	// Se mostrará un menú para ver las posibles opciones a realizar con las listas
-	printf("*****Menu de Listas*****\n");
-	printf("1.-Agregar elemento\n");
-	printf("2.-Buscar\n");
-	printf("3.-Recorrer\n");
-	printf("4.-Borrar\n");
-	printf("5.-Salir\n");
-	printf("-> ");
-	//En caso de encontrar la opción '5' salir del ciclo
-	if((opc=getch()) == '5')
-		break;
-	//Revisar cada una de las opciones
-	switch(opc)
-	{
-		case '1':	//Agregar elemento
+	 /* Variables locales */
+	 // Se coloca una variable del tipo nodo para su manejo y se inicia a NULL, esto es muy 
+	 // importante pues es posible que sino se inicia a un valor NULL el apuntador inicie "apuntando"
+	 // a algún dato "basura"
+	 nodo *tmp=NULL;
+	 char opc, opc1, opc2, opc3;
+	 clrscr();
+	 
+	 // Ciclo principal
+	 while(1)
+	 {
+		//Se inicia limpiando la pantalla
+		clrscr();
+		// Se mostrará un menú para ver las posibles opciones a realizar con las listas
+		printf("*****Menu de Listas*****\n");
+		printf("1.-Agregar elemento\n");
+		printf("2.-Buscar\n");
+		printf("3.-Recorrer\n");
+		printf("4.-Borrar\n");
+		printf("5.-Salir\n");
+		printf("-> ");
+		//En caso de encontrar la opción '5' salir del ciclo
+		if((opc=getch()) == '5')
+			break;
+		//Revisar cada una de las opciones
+		switch(opc)
 		{
-			//Limpiar la pantalla
-			clrscr();
-			printf(" < Como se realizara la inserción > \n");
-			printf("1.-Agregando al final\n");
-			printf("2.-Insertando un elemento\n");
-			printf("--> ");
-			//Aceptar la opción y mostrar el eco en pantalla
-			opc1=getche();
-			if(opc1 == '1')	//Opción de agregar al final
-			{
-				clrscr();
-				tmp=aceptar();	//Aceptar los valores
-				agregar(tmp);	//Agregar los nuevos datos
-				break;
-			}
-			else if(opc1 == '2')	//Opción de insertar un elemento
+			case '1':	//Agregar elemento
 			{
 				//Limpiar la pantalla
 				clrscr();
-				//Asignar el valor del apuntador primero a un apuntador temporal tmp
-				tmp=primero;
-				if(tmp == NULL)	//Si el apuntador tmp es NULL
+				printf(" < Como se realizara la inserción > \n");
+				printf("1.-Agregando al final\n");
+				printf("2.-Insertando un elemento\n");
+				printf("--> ");
+				//Aceptar la opción y mostrar el eco en pantalla
+				opc1=getche();
+				if(opc1 == '1')	//Opción de agregar al final
 				{
-					//Esto quiere decir que no hay ningún elemento en la lista
-					printf("\nNo hay elementos en la lista");
+					clrscr();
+					tmp=aceptar();	//Aceptar los valores
+					agregar(tmp);	//Agregar los nuevos datos
+					break;
+				}
+				else if(opc1 == '2')	//Opción de insertar un elemento
+				{
+					//Limpiar la pantalla
+					clrscr();
+					//Asignar el valor del apuntador primero a un apuntador temporal tmp
+					tmp=primero;
+					if(tmp == NULL)	//Si el apuntador tmp es NULL
+					{
+						//Esto quiere decir que no hay ningún elemento en la lista
+						printf("\nNo hay elementos en la lista");
+						getche();
+						break;
+					}
+					//En caso de que exista al menos un elemento en la lista se ingresan los valores
+					tmp=aceptar();
+					// Se manda a llamar a la función de insertar un dato
+					insertar(tmp);
+					break;
+				}
+				else //En caso de ingresar una opción no válida
+				{
+					printf("Opción incorrecta -->");
+					getch();
+					break;
+				}
+			}
+			case '2':	//Buscar elemento
+			{
+				clrscr();
+				printf("<Como deseas buscar el elemento>\n");
+				printf("1.-Por la clave\n");
+				printf("2.-Por la cadena\n");
+				printf("--> ");
+				opc2=getche();
+				if(opc2 == '1' || opc2 == '2')
+				{
+					clrscr();
+					// Evitar problemas y verificar si el apuntador primero "apunta" a un valor
+					if(primero == NULL)
+					{
+						printf("No hay elementos en la lista\n");
+						getch();
+						break;
+					}
+					buscar(opc2);	//Buscar los valores, enviando el tipo de busqueda
+					break;
+				}
+				else
+				{
+					printf("Opción incorrecta -->");
+					getch();
+					break;
+				}
+			}
+			case '3':	//Recorrer los elementos
+			{
+				clrscr();
+				if(primero == NULL)	//Volver a verificar si hay elementos
+				{
+					printf("\n <<<No existen aun elementos>>> ");
+					getch();
+					break;
+				}
+				printf("<Elemento Desplegado>");
+				recorrer();
+				break;
+			}
+			case '4':	//Borrar elementos
+			{
+				clrscr();
+				printf("\n<Como deseas borrar>\n");
+				printf("1.-Un elemento\n");
+				printf("2.-Formatear todo\n");
+				printf("--> ");
+				opc3=getche();
+				if(opc3 == '1')
+				{
+					clrscr();
+					tmp=primero;
+					if(tmp == NULL)
+					{
+						printf("\nLa lista no tiene elementos");
+						getch();
+						break;
+					}
+					borrar();
+					break;
+				}
+				else if(opc3 == '2')
+				{
+					tmp=primero;
+					if(tmp == NULL)
+					{
+						printf("\nAun no hay elementos que eliminar");
+						getch();
+						break;
+					}
+					liberar();	// Liberar la memoria, esto es quitar todos los elementos
+					printf("\n\nSe elimino todo...");
 					getche();
 					break;
 				}
-				//En caso de que exista al menos un elemento en la lista se ingresan los valores
-				tmp=aceptar();
-				// Se manda a llamar a la función de insertar un dato
-				insertar(tmp);
-				break;
+				else
+				{
+					printf("Opción incorrecta -->");
+					getch();
+					break;
+				}
 			}
-			else //En caso de ingresar una opción no válida
+			default:
 			{
 				printf("Opción incorrecta -->");
 				getch();
 				break;
 			}
 		}
-		case '2':	//Buscar elemento
-		{
-			clrscr();
-			printf("<Como deseas buscar el elemento>\n");
-			printf("1.-Por la clave\n");
-			printf("2.-Por la cadena\n");
-			printf("--> ");
-			opc2=getche();
-			if(opc2 == '1' || opc2 == '2')
-			{
-				clrscr();
-				// Evitar problemas y verificar si el apuntador primero "apunta" a un valor
-				if(primero == NULL)
-				{
-					printf("No hay elementos en la lista\n");
-					getch();
-					break;
-				}
-				buscar(opc2);	//Buscar los valores, enviando el tipo de busqueda
-				break;
-			}
-			else
-			{
-				printf("Opción incorrecta -->");
-				getch();
-				break;
-			}
-		}
-		case '3':	//Recorrer los elementos
-		{
-			clrscr();
-			if(primero == NULL)	//Volver a verificar si hay elementos
-			{
-				printf("\n <<<No existen aun elementos>>> ");
-				getch();
-				break;
-			}
-			printf("<Elemento Desplegado>");
-			recorrer();
-			break;
-		}
-		case '4':	//Borrar elementos
-		{
-			clrscr();
-			printf("\n<Como deseas borrar>\n");
-			printf("1.-Un elemento\n");
-			printf("2.-Formatear todo\n");
-			printf("--> ");
-			opc3=getche();
-			if(opc3 == '1')
-			{
-				clrscr();
-				tmp=primero;
-				if(tmp == NULL)
-				{
-					printf("\nLa lista no tiene elementos");
-					getch();
-					break;
-				}
-				borrar();
-				break;
-			}
-			else if(opc3 == '2')
-			{
-				tmp=primero;
-				if(tmp == NULL)
-				{
-					printf("\nAun no hay elementos que eliminar");
-					getch();
-					break;
-				}
-				liberar();	// Liberar la memoria, esto es quitar todos los elementos
-				printf("\n\nSe elimino todo...");
-				getche();
-				break;
-			}
-			else
-			{
-				printf("Opción incorrecta -->");
-				getch();
-				break;
-			}
-		}
-		default:
-		{
-			printf("Opción incorrecta -->");
-			getch();
-			break;
-		}
-	}
- }
- printf("Programa terminado");
- liberar();		//IMPORTANTE, HAY QUE LIBERAR LA MEMORIA
- printf("Memoria Liberada");
- getch();
+	 }
+	 printf("Programa terminado");
+	 liberar();		//IMPORTANTE, HAY QUE LIBERAR LA MEMORIA
+	 printf("Memoria Liberada");
+	 getch();
 }
 
 /* Función Aceptar */

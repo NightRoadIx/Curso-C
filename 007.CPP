@@ -72,26 +72,26 @@
 
 struct disco  //Declaramos la estructura
 {
- //Variables miembro de la estructura
- char *titulo;
- char *interprete;
- int no_pistas;
- float duracion;
+	 //Variables miembro de la estructura
+	 char *titulo;
+	 char *interprete;
+	 int no_pistas;
+	 float duracion;
 }Cd; //Nombre de la variable de la estructura
 
 union discou  //Declaramos la union
 {
- //Variables miembro de la union
- char *titulou;
- char *interpreteu;
- int no_pistasu;
- float duracionu;
+	 //Variables miembro de la union
+	 char *titulou;
+	 char *interpreteu;
+	 int no_pistasu;
+	 float duracionu;
 }Cdu; //Nombre de la variable de la union
 
 enum dias_semana //Declaramos la enumeraci¢n
-{
- //Variables constantes toman valores 0,1,2,3,4,5,6
- LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
+	{
+	 //Variables constantes toman valores 0,1,2,3,4,5,6
+	 LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
 };
 
 /*
@@ -101,10 +101,10 @@ enum dias_semana //Declaramos la enumeraci¢n
    estructura a lo largo del programa, entonces se puede hacer la declaraci¢n como:
 typedef struct disco
 {
- char *titulo;
- char *interprete;
- int no_pistas;
- float duracion;
+	 char *titulo;
+	 char *interprete;
+	 int no_pistas;
+	 float duracion;
 }Cd;
 
 Cd disco_nuevo; //Ser¡a el sustituto a:  struct disco disco_nuevo
@@ -112,10 +112,10 @@ Cd disco_nuevo; //Ser¡a el sustituto a:  struct disco disco_nuevo
 
 //Inicializaci¢n de estructuras
 struct disco Cd1={
-"T¡tulo del disco",
-"Interprete_del_disco",
-5,
-1.5
+	"T¡tulo del disco",
+	"Interprete_del_disco",
+	5,
+	1.5
 };
 
 /*PROTOTIPOS FUNCIONES*/
@@ -123,61 +123,61 @@ void ver_info(struct disco reg, int);
 
 void main()
 {
- clrscr();
- //Manejo de las estructuras
- //Puede declararse otra estructura como variable local
- struct disco Cd_local;
- //Al igual que una union
- union discou Cd_localu;
+	 clrscr();
+	 //Manejo de las estructuras
+	 //Puede declararse otra estructura como variable local
+	 struct disco Cd_local;
+	 //Al igual que una union
+	 union discou Cd_localu;
 
- /*
-   El tama¤o de las estructruas
-   Puede determinarse el tama¤o de las estructuras mediante el operador
-   sizeof(variable_estructura); <- devuelve el tama¤o en bytes (ver OO1.cpp)
-   y el tama¤o es la suma de los tama¤os de sus variables miembro
-   en este caso ser  de
-   sizeof(char *titulo) = asigna 2 (char es 1, + el nulo)
-   sizeof(char *int‚rprete) = asigna 2 (char es 1, + el nulo)
-   sizeof(int no_pistas) = 2
-   sizeof(float duracion) = 4
- */
- printf("Tama¤o de Cd1 [Estructura] -> %d\n\n",sizeof(Cd_local));
- printf("Tama¤o de Cd1 [Uni¢n]      -> %d\n\n",sizeof(Cd_localu));
+	 /*
+	   El tama¤o de las estructruas
+	   Puede determinarse el tama¤o de las estructuras mediante el operador
+	   sizeof(variable_estructura); <- devuelve el tama¤o en bytes (ver OO1.cpp)
+	   y el tama¤o es la suma de los tama¤os de sus variables miembro
+	   en este caso ser  de
+	   sizeof(char *titulo) = asigna 2 (char es 1, + el nulo)
+	   sizeof(char *int‚rprete) = asigna 2 (char es 1, + el nulo)
+	   sizeof(int no_pistas) = 2
+	   sizeof(float duracion) = 4
+	 */
+	 printf("Tama¤o de Cd1 [Estructura] -> %d\n\n",sizeof(Cd_local));
+	 printf("Tama¤o de Cd1 [Uni¢n]      -> %d\n\n",sizeof(Cd_localu));
 
- /*
-   Acceso a estructuras
-   Para acceder a las estructuras se debe usar el operador punto:
-   variable_estructura.variable_miembro
- */
- /*LECTURA*/
- printf("Disco 1 \n");
- printf("T¡tulo      : %s\n",Cd1.titulo);
- printf("Int‚rprete  : %s\n",Cd1.interprete);
- printf("No_canciones: %d\n",Cd1.no_pistas);
- printf("Duraci¢n    : %.2f\n",Cd1.duracion);
- /*ESCRITURA*/
- printf("\n\nNuevo disco\n");
- printf("Escribe el t¡tulo    : "); gets(Cd_local.titulo);
- printf("Escribe el interprete: "); gets(Cd_local.interprete);
- printf("Cuantas canciones    : "); scanf("%d",&Cd_local.no_pistas);
- printf("Duracion del disco   : "); scanf("%f",&Cd_local.duracion);
- //Las estructuras pasan a una funci¢n igual que cualquier otra variable
- ver_info(Cd_local,2);
+	 /*
+	   Acceso a estructuras
+	   Para acceder a las estructuras se debe usar el operador punto:
+	   variable_estructura.variable_miembro
+	 */
+	 /*LECTURA*/
+	 printf("Disco 1 \n");
+	 printf("T¡tulo      : %s\n",Cd1.titulo);
+	 printf("Int‚rprete  : %s\n",Cd1.interprete);
+	 printf("No_canciones: %d\n",Cd1.no_pistas);
+	 printf("Duraci¢n    : %.2f\n",Cd1.duracion);
+	 /*ESCRITURA*/
+	 printf("\n\nNuevo disco\n");
+	 printf("Escribe el t¡tulo    : "); gets(Cd_local.titulo);
+	 printf("Escribe el interprete: "); gets(Cd_local.interprete);
+	 printf("Cuantas canciones    : "); scanf("%d",&Cd_local.no_pistas);
+	 printf("Duracion del disco   : "); scanf("%f",&Cd_local.duracion);
+	 //Las estructuras pasan a una funci¢n igual que cualquier otra variable
+	 ver_info(Cd_local,2);
 
- getch();
- printf("\nEnumeraci¢n\n");
- enum dias_semana dia;
- for(dia=LUNES; dia <= DOMINGO; dia++)
-  printf("Dia -> %d\n",dia);
+	 getch();
+	 printf("\nEnumeraci¢n\n");
+	 enum dias_semana dia;
+	 for(dia=LUNES; dia <= DOMINGO; dia++)
+	  printf("Dia -> %d\n",dia);
 
- getch();
+	 getch();
 }
 
 void ver_info(struct disco reg,int num)
 {
- printf("\nDisco %d \n",num);
- printf("T¡tulo      : %s\n",reg.titulo);
- printf("Int‚rprete  : %s\n",reg.interprete);
- printf("No_canciones: %d\n",reg.no_pistas);
- printf("Duraci¢n    : %.2f\n",reg.duracion);
+	 printf("\nDisco %d \n",num);
+	 printf("T¡tulo      : %s\n",reg.titulo);
+	 printf("Int‚rprete  : %s\n",reg.interprete);
+	 printf("No_canciones: %d\n",reg.no_pistas);
+	 printf("Duraci¢n    : %.2f\n",reg.duracion);
 }
