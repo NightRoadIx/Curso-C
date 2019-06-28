@@ -33,7 +33,7 @@ void main()
 	 clrscr();
 	 if( (pp=fopen("Puntos.txt","wb"))==NULL )
 	 {
-		puts("\nError en la apetura de archivo"); getch(); exit(-1);
+		puts("\nError en la apertura de archivo"); getch(); exit(-1);
 	 }
 
 	 printf("\nIntroduce coordenadas de puntos [para acabar (0,0)]:\n");
