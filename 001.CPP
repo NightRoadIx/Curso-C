@@ -1,5 +1,5 @@
 /*
-  Curso de ProgramaciÛn en C
+  Curso de Programaci√≥n en C
   Leccion 1
 */
 
@@ -9,39 +9,39 @@
    Para comenzar las lineas de comentario se colocan como:
    // para comentarios de una sola linea
    o como se encuentra este para varias lineas
-   Para cerrar las lineas de cÛdigo, se usa el ; y gralmente. es para finalizar
-   la llamada a una funciÛn o asignacion de variables.
-   La extensiÛn de los archivos que contienen el cÛdigo fuente por lo general
-   llevan una extensiÛn de .c o .cpp (dependiendo si se trata de ANSI-C o C++), 
-   mientras que las librerias llevan extensiÛn .h.
+   Para cerrar las lineas de c√≥digo, se usa el ; y gralmente. es para finalizar
+   la llamada a una funci√≥n o asignacion de variables.
+   La extensi√≥n de los archivos que contienen el c√≥digo fuente por lo general
+   llevan una extensi√≥n de .c o .cpp (dependiendo si se trata de ANSI-C o C++), 
+   mientras que las librerias llevan extensi√≥n .h.
 */
 
 /*
-  SecciÛn de librerias, aqui es en donde se colocan las librerias que C cuenta,
+  Secci√≥n de librerias, aqui es en donde se colocan las librerias que C cuenta,
   La sintaxis puede ser de 2 formas:
-  #include <libreria.h> para librerias que estan en el directorio del compilador (o que "vienen" incluÌdas con el compilador)
+  #include <libreria.h> para librerias que estan en el directorio del compilador (o que "vienen" inclu√≠das con el compilador)
   #include "libreria.h" para aquellas librerias que no estan en el directorio del compilador, pero si en el mismo directorio
-  del programa que se est· desarrollando
+  del programa que se est√° desarrollando
 */
 //En los primeros programas se hara un listado de las funciones de las librerias usadas
 #include<stdio.h>
 /*
    Listado de funciones
-   1.-printf();			Enviar datos al dispositivo de salida est·ndar (stdout), en este caso la pantalla
+   1.-printf();			Enviar datos al dispositivo de salida est√°ndar (stdout), en este caso la pantalla
 */
 #include<conio.h>
 /*
-   1.-getch();			Esperar a recibir informaciÛn del dispositivo de entrada est·ndar (stdin), en este caso el teclado
+   1.-getch();			Esperar a recibir informaci√≥n del dispositivo de entrada est√°ndar (stdin), en este caso el teclado
 */
 
 /*
-   SecciÛn de Definiciones
-   Aqui se pueden hacer definiciones de constantes, ya sea n˙mericas o alfabeticas, la declaraciÛn es de la forma:
+   Secci√≥n de Definiciones
+   Aqui se pueden hacer definiciones de constantes, ya sea n√∫mericas o alfabeticas, la declaraci√≥n es de la forma:
    #define NOMBRE valor
-   Para el nombre de la definiciÛn es preferible colocarlo con may˙sculas y de longitud menor a 12.
-   Las definiciones son como una especie de constante para los programas, son conocidas tambiÈn con el nombre
+   Para el nombre de la definici√≥n es preferible colocarlo con may√∫sculas y de longitud menor a 12.
+   Las definiciones son como una especie de constante para los programas, son conocidas tambi√©n con el nombre
    de MACROS y facilitan el hecho de modificar constantes recurrentes en los programas y que facilitan 
-   el actualizar los cÛdigos
+   el actualizar los c√≥digos
 */
 #define DEFINICION 50
 
@@ -72,42 +72,45 @@
   
   Los nombres de las variables no deben repetirse y pueden tener una longitud
   de 128 caracteres, pero por simplicidad se recomienda que no sean mayores a 8,
-  adem·s deben de tener solo caracteres alfanumericos y se puede incluir el sÌmbolo _
+  adem√°s deben de tener solo caracteres alfanumericos y se puede incluir el s√≠mbolo _
+  Se recomienda, por convenci√≥n, utilizar la notaci√≥n camello, esto es, si se desea identificar
+  una variable con dos o m√°s palabras, a partir de la segunda palabra se iniciar√° con una may√∫scula:
+  estaEsMiVariableNueva
   
   Nota C es sensible a las mayusculas por lo que "var" es diferente de "VAR"
   
 */
 int var_glo;
 
-// EXISTE UNA NOTACI”N DE VARIABLES CONOCIDA COMO NOTACI”N CAMELLO, PUES SE UTILIZA ALGO DE LA SIGUIENTE FORMA:
+// EXISTE UNA NOTACI√ìN DE VARIABLES CONOCIDA COMO NOTACI√ìN CAMELLO, PUES SE UTILIZA ALGO DE LA SIGUIENTE FORMA:
 // miVariableNueva
-// QUE COMO SE OBSERVA UNE PALABRAS Y SE COLOCA LA PRIMERA LETRA DE CADA NUEVA PALABRA CON MAY⁄SCULA
-// COMENZ” A USARSE EN EL LENGUAJE DE PROGRAMACI”N JAVA, PERO SE HA EXTENDIDO SU USO A OTROS LENGUAJES
+// QUE COMO SE OBSERVA UNE PALABRAS Y SE COLOCA LA PRIMERA LETRA DE CADA NUEVA PALABRA CON MAY√öSCULA
+// COMENZ√ì A USARSE EN EL LENGUAJE DE PROGRAMACI√ìN JAVA, PERO SE HA EXTENDIDO SU USO A OTROS LENGUAJES
 
 /*
-  Funcion principal main, el C es un lenguaje multiparadigma, mayormente estructurado, pero tambiÈn
-  puede trabajr algunos conceptos de la programaciÛn funcional, 
+  Funcion principal main, el C es un lenguaje multiparadigma, mayormente estructurado, pero tambi√©n
+  puede trabajr algunos conceptos de la programaci√≥n funcional, 
   esto es que se organiza mediante entidades llamadas funciones, estas son como declaraciones de
-  ciertas partes en las que se compone un programa, segmentos de cÛdigo, puede verse como una
-  funcion matem·tica la cual recibe algun valor o valores, opera sobre esos valores y regresa uno y solo un resultado
-  (aunque, a diferencia de las funciones matem·ticas, existen algunos "trucos" que permiten regresar
+  ciertas partes en las que se compone un programa, segmentos de c√≥digo, puede verse como una
+  funcion matem√°tica la cual recibe algun valor o valores, opera sobre esos valores y regresa uno y solo un resultado
+  (aunque, a diferencia de las funciones matem√°ticas, existen algunos "trucos" que permiten regresar
   varios mas en lenguaje C).
   Las funciones se declaran como:
-  valor_a_regresar nombre_funciÛn(valores_a_recibir)
-  valor_a_regresar -> puede ser de cualquier tipo, pero tambiÈn puede
+  valor_a_regresar nombre_funci√≥n(valores_a_recibir)
+  valor_a_regresar -> puede ser de cualquier tipo, pero tambi√©n puede
 		      declararse que no regrese nada mediante la palabra void
-  nombre_funcion   -> aqui va el nombre de la funciÛn, siguiendo las reglas de las nomenclatura de variables, no se permiten
-		      repeticiones de nombres (en C++ ya se permite, pero eso es parte de la ProgramaciÛn Orientada a Objetos)
+  nombre_funcion   -> aqui va el nombre de la funci√≥n, siguiendo las reglas de las nomenclatura de variables, no se permiten
+		      repeticiones de nombres (en C++ ya se permite, pero eso es parte de la Programaci√≥n Orientada a Objetos)
 */
 void main()
 {
-	// Las llaves { }, se utilizan para "encerrar" las instrucciones que corresponden con una funciÛn
-	// ES UNA BUENA PR¡CTICA EL COLOCAR UN ESPACIO O TABULADOR (PREFERENTE) AL ABRIR UNA LLAVE 
-	// (EL CASO DE LAS FUNCIONES O DE LAS SENTENCIAS DE CONTROL QUE SE VER¡N M¡S ADELANTE)
-	// PARA HACER M¡S LEGIBLE EL PROGRAMA
-	// (ADEM¡S DE ADQUIRIR LA COSTUMBRE QUE FACILITAR¡ EL PROGRAMAR EN OTROS LENGUAJES)
+	// Las llaves { }, se utilizan para "encerrar" las instrucciones que corresponden con una funci√≥n
+	// ES UNA BUENA PR√ÅCTICA EL COLOCAR UN ESPACIO O TABULADOR (PREFERENTE) AL ABRIR UNA LLAVE 
+	// (EL CASO DE LAS FUNCIONES O DE LAS SENTENCIAS DE CONTROL QUE SE VER√ÅN M√ÅS ADELANTE)
+	// PARA HACER M√ÅS LEGIBLE EL PROGRAMA
+	// (ADEM√ÅS DE ADQUIRIR LA COSTUMBRE QUE FACILITAR√Å EL PROGRAMAR EN OTROS LENGUAJES)
 	
-	//Variable local esta solo es funcional dentro de esta secciÛn del programa (main en este caso)
+	//Variable local esta solo es funcional dentro de esta secci√≥n del programa (main en este caso)
 	int var_loc;
 
 	//Asignacion de valores
@@ -115,7 +118,7 @@ void main()
 	var_loc = 21;
 
 	/*
-		Uso de la funciÛn printf
+		Uso de la funci√≥n printf
 		printf se usa para mostrar valores o caracteres en la unidad de salida
 		predeterminada (en este caso el monitor), y su sintaxis es:
 		printf( "caracteres %id \uso", variable );
@@ -136,9 +139,9 @@ void main()
 			  \" -> Colocar comilla doble
 			  \\ -> Colocar "la backslash"
 			  \b -> Retroceso de espacio
-			  \f -> Avance de p†gina
+			  \f -> Avance de p¬†gina
 			  \r -> Retorno de carro
-			  \v Tabulaci¢n vertical
+			  \v Tabulaci¬¢n vertical
 		variable   -> aqui va la variable a mostrar
 	*/
 	printf("\tPrimer programa en C\n");
@@ -150,6 +153,6 @@ void main()
 	getch();
 
 	printf("Tambien se puede operar %d + %d = %d",var_glo,var_loc,var_glo+var_loc);
-	//... pero las operaciones se ver·n en la siguiente leccion
+	//... pero las operaciones se ver√°n en la siguiente leccion
  getch();
 }
