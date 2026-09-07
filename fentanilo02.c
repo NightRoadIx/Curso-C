@@ -35,7 +35,8 @@ int main()
     printf("%d\n", 7 == 2);  // Igual a
     printf("%d\n", 7 != 2);  // Diferente de
 
-
+    // Operadores lógicos sobre condiciones
+    
     
     return 0;
 }
