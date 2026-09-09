@@ -36,6 +36,39 @@ int main()
     printf("%d\n", 7 != 2);  // Diferente de
 
     // Operadores lógicos sobre condiciones
+    int x = 0;
+    printf("%d", (x >= 6)&&(x <= 10));
+    printf("%d", !((x >= 6)&&(x <= 10)));
+    printf("%d", (x < 6)&&(x > 10));
+    printf("%d", (x < 6)||(x > 10));
+
+    // Operador ternario
+    char califica = ((x >= 6)&&(x <= 10)) ? 'a': 'r';
+    printf("Aprueba: %c", califica);
+
+    // Operadores lógicos sobre enteros
+    // Variable de 8 bits
+    char num8Bits = 9;
+    // 00001001
+
+    // Desplazamiento de bits 
+    printf("%d\n", num8Bits << 1);
+    printf("%d\n", num8Bits >> 1);
+
+    printf("%d\n", 1 << 20);
+
+    // Enmascaramiento
+    printf("%d\n", 9 & 1);
+    printf("%d\n", 9 | 1);
+    printf("%d\n", 9 ^ 1);
+
+    // Un número...
+    int num = 3;
+    // Se aplica el operador ternario, el cual puede manejar}
+    // Cadenas de caracteres
+    char* resp = (num%2) != 0 ? "impar" : "par";
+    // e indicar si el número es par o impar
+    printf("%d es %s\n", num, resp);
     
     
     return 0;
